@@ -8,7 +8,8 @@ class InputComponent extends Component {
     super(props);
     this.state = {
       keyword: "",
-      array: []
+      array: [],
+      buttonDisabled: true
     };
   }
 
@@ -26,12 +27,14 @@ class InputComponent extends Component {
     }
 
     !this.state.keyword
-      ? this.setState({ array: [] })
+      ? this.setState({ array: [], buttonDisabled: true })
       : fetch(`${API_REQUEST}${this.state.keyword}&language=en&limit=${limit}`)
           .then(locationEntries => locationEntries.json())
           .then(locationEntries => {
             this.setState({ array: locationEntries.entries });
-            console.log(this.state.array);
+            this.state.array.length === 0
+              ? this.setState({ buttonDisabled: true })
+              : this.setState({ buttonDisabled: false });
           });
   };
 
@@ -46,10 +49,18 @@ class InputComponent extends Component {
   };
 
   handleClick = event => {
-    console.log(event);
     event.persist();
     this.setState({ keyword: event.target.innerText });
   };
+
+  handleSearchGoogle = () => {
+    window.open(`//google.com/search?q=${this.state.keyword}`, "_blank");
+  };
+
+  handleShowMore = () =>
+    console.log(
+      `Yet to implemented... It should refresh list to show the next 10-25 relevant searches`
+    );
 
   render() {
     return (
@@ -70,6 +81,18 @@ class InputComponent extends Component {
               );
             })}
           </ul>
+        </div>
+        <div>
+          <button
+            className={classes.googleSearch}
+            onClick={this.handleSearchGoogle}
+            disabled={this.state.buttonDisabled}
+          >
+            Click to search
+          </button>
+          <button className={classes.showMore} onClick={this.handleShowMore}>
+            Show more...
+          </button>
         </div>
       </div>
     );

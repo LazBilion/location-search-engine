@@ -10,10 +10,6 @@ const SearchComponent = () => {
       <div className={classes.searchHeader}>
         <h1>What place are you looking for</h1>
         <InputComponent />
-        <div>
-          <button>Click to search</button>
-          <button>Show more...</button>
-        </div>
       </div>
     </div>
   );
