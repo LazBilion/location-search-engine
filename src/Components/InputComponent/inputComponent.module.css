@@ -1,0 +1,15 @@
+.inputField {
+  width: 500px;
+}
+
+.autocompleteList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.autocompleteList ul li {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}

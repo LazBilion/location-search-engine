@@ -1,0 +1,7 @@
+.searchComponent {
+  display: flex;
+}
+
+.searchHeader h1 {
+  margin: 0;
+}
