@@ -2,16 +2,16 @@ import React from "react";
 
 import classes from "./app.module.css";
 import Banner from "Components/Banner";
-import Search from "Components/SearchComponent";
+import SearchComponent from "Components/SearchComponent";
 
 const App = () => {
   return (
-    <div className={classes.appComponent}>
-      <div className={classes.banner}>
-        <Banner />
+    <div className={classes.appContainer}>
+      <div className={classes.searchEngineContainer}>
+        <SearchComponent />
       </div>
-      <div className={classes.searchBar}>
-        <Search />
+      <div className={classes.bannerContainer}>
+        <Banner />
       </div>
     </div>
   );

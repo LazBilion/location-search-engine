@@ -1,4 +1,4 @@
-.bannerPlacement {
+.bannerContent {
   height: 343px;
   width: 65%;
   margin-left: 15%;
@@ -7,4 +7,18 @@
   justify-content: center;
   align-items: flex-end;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .bannerContent {
+    height: 70px;
+    width: 100%;
+    margin: 25px 0 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bannerContent {
+    display: none;
+  }
 }

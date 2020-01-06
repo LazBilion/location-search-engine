@@ -1,5 +1,5 @@
 .inputField {
-  width: 100%;
+  width: 97%;
   margin-bottom: 15px;
 }
 
@@ -9,6 +9,8 @@
   margin-top: 0;
   padding-left: 0;
   border: 1px solid;
+  max-height: 300px;
+  overflow: scroll;
 }
 
 .autocompleteList ul li {
@@ -45,4 +47,16 @@
   cursor: pointer;
   color: blue;
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .buttonContainer {
+    flex-direction: column-reverse;
+    width: 20%;
+    margin: 0 40%;
+  }
+
+  .showMore {
+    margin-bottom: 16px;
+  }
 }

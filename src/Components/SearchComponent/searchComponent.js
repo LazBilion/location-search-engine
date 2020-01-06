@@ -1,7 +1,7 @@
 import React from "react";
 
 import classes from "./searchComponent.module.css";
-import InputComponent from "Components/InputComponent";
+import SearchEngine from "Components/Search-Engine";
 import { FaUser } from "react-icons/fa";
 
 const SearchComponent = () => {
@@ -10,9 +10,9 @@ const SearchComponent = () => {
       <div className={classes.imageThumbnail}>
         <FaUser />
       </div>
-      <div className={classes.searchHeader}>
-        <h1>What place are you looking for:</h1>
-        <InputComponent />
+      <div className={classes.searchInput}>
+        <h1>What place are you looking for?</h1>
+        <SearchEngine />
       </div>
     </div>
   );

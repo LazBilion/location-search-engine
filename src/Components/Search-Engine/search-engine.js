@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import classes from "./inputComponent.module.css";
+import classes from "./search-engine.module.css";
 import { API_REQUEST } from "Helpers/helpers";
 
-class InputComponent extends Component {
+class SearchEngine extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,10 +17,10 @@ class InputComponent extends Component {
   getList = () => {
     let limit;
     switch (true) {
-      case window.innerWidth < 768:
+      case window.innerWidth < 600:
         limit = 10;
         break;
-      case window.innerWidth < 985:
+      case window.innerWidth < 768:
         limit = 20;
         break;
       default:
@@ -103,4 +103,4 @@ class InputComponent extends Component {
   }
 }
 
-export default InputComponent;
+export default SearchEngine;

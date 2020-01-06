@@ -8,12 +8,29 @@
   font-size: 60px;
 }
 
-.searchHeader {
+.searchInput {
   width: 80%;
 }
 
-.searchHeader h1 {
+.searchInput h1 {
   margin: 0;
   font-size: 20px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .searchComponent {
+    flex-direction: column;
+  }
+
+  .imageThumbnail {
+    align-self: center;
+    font-size: 80px;
+    margin-right: 0;
+  }
+
+  .searchInput {
+    align-self: center;
+    width: 90%;
+  }
 }

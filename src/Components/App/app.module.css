@@ -1,6 +1,31 @@
-.appComponent {
+.appContainer {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  grid-auto-flow: dense;
   margin: 10% 5%;
   height: 343px;
+}
+
+.bannerContainer {
+  grid-column: 1;
+}
+
+.searchEngineContainer {
+  grid-column: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .appContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100 vh;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .appContainer {
+    margin: 3% 5%;
+  }
 }
