@@ -2,10 +2,14 @@
   display: flex;
 }
 
-.imageThumbnail {
-  padding-top: 60px;
-  margin-right: 20px;
-  font-size: 60px;
+.thumbnailContainer {
+  padding-top: 20px;
+}
+
+.thumbnailImage {
+  width: 100px;
+  height: 100px;
+  padding-left: 25px;
 }
 
 .searchInput {
@@ -23,10 +27,13 @@
     flex-direction: column;
   }
 
-  .imageThumbnail {
+  .thumbnailContainer {
     align-self: center;
-    font-size: 80px;
-    margin-right: 0;
+  }
+
+  .thumbnailImage {
+    width: 180px;
+    height: 180px;
   }
 
   .searchInput {
