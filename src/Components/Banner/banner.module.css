@@ -1,0 +1,10 @@
+.bannerPlacement {
+  height: 343px;
+  width: 65%;
+  margin-left: 15%;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}

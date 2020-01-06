@@ -1,15 +1,48 @@
 .inputField {
-  width: 500px;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .autocompleteList ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  margin-bottom: 16px;
+  margin-top: 0;
+  padding-left: 0;
+  border: 1px solid;
 }
 
 .autocompleteList ul li {
   cursor: pointer;
   text-decoration: underline;
-  margin-bottom: 5px;
+  margin: 10px 8px;
+}
+
+.autocompleteList ul li:hover {
+  transition: 500ms;
+  background-color: grey;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.googleSearch {
+  box-shadow: 2px 2px 2px rgba(117, 117, 117, 0.8);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.googleSearch:hover {
+  transition: 250ms;
+  background-color: rgb(71, 71, 71);
+  color: white;
+}
+
+.showMore {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  color: blue;
+  font-weight: bold;
 }

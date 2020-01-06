@@ -9,7 +9,8 @@ class InputComponent extends Component {
     this.state = {
       keyword: "",
       array: [],
-      buttonDisabled: true
+      buttonDisabled: true,
+      display: "none"
     };
   }
 
@@ -27,14 +28,14 @@ class InputComponent extends Component {
     }
 
     !this.state.keyword
-      ? this.setState({ array: [], buttonDisabled: true })
+      ? this.setState({ array: [], buttonDisabled: true, display: "none" })
       : fetch(`${API_REQUEST}${this.state.keyword}&language=en&limit=${limit}`)
           .then(locationEntries => locationEntries.json())
           .then(locationEntries => {
             this.setState({ array: locationEntries.entries });
             this.state.array.length === 0
-              ? this.setState({ buttonDisabled: true })
-              : this.setState({ buttonDisabled: false });
+              ? this.setState({ buttonDisabled: true, display: "none" })
+              : this.setState({ buttonDisabled: false, display: "block" });
           });
   };
 
@@ -71,7 +72,10 @@ class InputComponent extends Component {
           onChange={this.handleChange}
           value={this.state.keyword}
         />
-        <div className={classes.autocompleteList}>
+        <div
+          className={classes.autocompleteList}
+          style={{ display: this.state.display }}
+        >
           <ul>
             {this.state.array.map((location, index) => {
               return (
@@ -82,7 +86,7 @@ class InputComponent extends Component {
             })}
           </ul>
         </div>
-        <div>
+        <div className={classes.buttonContainer}>
           <button
             className={classes.googleSearch}
             onClick={this.handleSearchGoogle}
