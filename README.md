@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project runs on Google Chrome at this point. Will keep woring on it to make it cross-browser available
+
 ## Available Scripts
 
 In the project directory, you can run:
