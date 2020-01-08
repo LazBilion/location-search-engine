@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project runs on Google Chrome at this point.
+This project runs on Google Chrome, Firefox and Opera at this point. Edge compatibility in later update
 
 ## Available Scripts
 

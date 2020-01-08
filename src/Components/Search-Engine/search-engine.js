@@ -29,14 +29,16 @@ class SearchEngine extends Component {
 
     !this.state.keyword
       ? this.setState({ array: [], buttonDisabled: true, display: "none" })
-      : fetch(`${API_REQUEST}${this.state.keyword}&language=en&limit=${limit}`)
-          .then(locationEntries => locationEntries.json())
-          .then(locationEntries => {
-            this.setState({ array: locationEntries.entries });
-            this.state.array.length === 0
-              ? this.setState({ buttonDisabled: true, display: "none" })
-              : this.setState({ buttonDisabled: false, display: "block" });
-          });
+      : this.state.keyword.split(/\*s/).join("%20");
+    console.log(this.state.keyword);
+    fetch(`${API_REQUEST}${this.state.keyword}&language=en&limit=${limit}`)
+      .then(locationEntries => locationEntries.json())
+      .then(locationEntries => {
+        this.setState({ array: locationEntries.entries });
+        this.state.array.length === 0
+          ? this.setState({ buttonDisabled: true, display: "none" })
+          : this.setState({ buttonDisabled: false, display: "block" });
+      });
   };
 
   handleChange = e => {
