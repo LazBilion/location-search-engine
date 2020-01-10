@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import classes from "./search-engine.module.css";
-import { API_REQUEST } from "Helpers/helpers";
+import { API_REQUEST, USER_LANGUAGES } from "Helpers/helpers";
 
 class SearchEngine extends Component {
   constructor(props) {
@@ -10,7 +10,8 @@ class SearchEngine extends Component {
       keyword: "",
       array: [],
       buttonDisabled: true,
-      display: "none"
+      display: "none",
+      language: "en"
     };
   }
 
@@ -29,16 +30,25 @@ class SearchEngine extends Component {
 
     !this.state.keyword
       ? this.setState({ array: [], buttonDisabled: true, display: "none" })
-      : this.state.keyword.split(/\*s/).join("%20");
-    console.log(this.state.keyword);
-    fetch(`${API_REQUEST}${this.state.keyword}&language=en&limit=${limit}`)
-      .then(locationEntries => locationEntries.json())
-      .then(locationEntries => {
-        this.setState({ array: locationEntries.entries });
-        this.state.array.length === 0
-          ? this.setState({ buttonDisabled: true, display: "none" })
-          : this.setState({ buttonDisabled: false, display: "block" });
-      });
+      : fetch(
+          `${API_REQUEST}${this.state.keyword}&language=${this.state.language}&limit=${limit}`
+        )
+          .then(locationEntries => locationEntries.json())
+          .then(locationEntries => {
+            this.setState({ array: locationEntries.entries });
+            this.state.array.length === 0
+              ? this.setState({ buttonDisabled: true, display: "none" })
+              : this.setState({ buttonDisabled: false, display: "block" });
+          });
+  };
+
+  detectLanguage = () => {
+    let text = document.getElementById("searchInput").value.replace(/\s/g);
+    Object.entries(USER_LANGUAGES).forEach(([key, value]) => {
+      if (value.test(text) === true) {
+        this.setState({ language: key });
+      }
+    });
   };
 
   handleChange = e => {
@@ -46,6 +56,7 @@ class SearchEngine extends Component {
     if (this.state.keyword.length >= 1) {
       clearTimeout(this.pauseTime);
       this.pauseTime = setTimeout(() => {
+        this.detectLanguage();
         this.getList();
       }, 1000);
     }
@@ -70,6 +81,7 @@ class SearchEngine extends Component {
       <div>
         <input
           className={classes.inputField}
+          id="searchInput"
           type="text"
           onChange={this.handleChange}
           value={this.state.keyword}
