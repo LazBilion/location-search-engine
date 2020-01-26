@@ -4,12 +4,7 @@
 
 .thumbnailContainer {
   padding-top: 20px;
-}
-
-.thumbnailImage {
-  width: 100px;
-  height: 100px;
-  padding-left: 25px;
+  margin-right: 12px;
 }
 
 .searchInput {
@@ -29,11 +24,7 @@
 
   .thumbnailContainer {
     align-self: center;
-  }
-
-  .thumbnailImage {
-    width: 180px;
-    height: 180px;
+    margin-bottom: 12px;
   }
 
   .searchInput {
